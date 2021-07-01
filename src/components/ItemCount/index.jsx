@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Button} from 'react-bootstrap'
+import './styles.scss'
 
 export const ItemCount = ({stock}) => {
     const [counter, setCounter] = useState(1)
@@ -23,10 +24,14 @@ export const ItemCount = ({stock}) => {
         {stock>0 ?
         <>
             <p>Stock: {stock}</p>
-            <button onClick={restar}>-</button>
-            <input type="number" value={counter}/>
-            <button onClick={sumar}>+</button>
-            <Button onClick={onAdd} variant="primary">Agregar al carrito</Button>
+            <div className="buttonsContainer">
+                <div className="buttonsContainer__count">
+                    <button onClick={restar}>-</button>
+                    <input type="number" value={counter}/>
+                    <button onClick={sumar}>+</button>
+                </div>
+                <Button className="buttonsContainer__add" onClick={onAdd} variant="primary">Agregar al carrito</Button>
+            </div>
         </>
         :
         <p>Sin stock</p>

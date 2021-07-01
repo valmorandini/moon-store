@@ -1,0 +1,17 @@
+
+.dContainer {
+    margin: 70px;
+    display: flex;
+    justify-content: space-evenly;
+    
+
+}
+
+.detalle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 70px;
+    margin-right: 70px;
+    border-style: ridge;
+}

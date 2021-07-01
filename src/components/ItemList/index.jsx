@@ -1,11 +1,17 @@
-
+import './styles.scss'
 import { Item } from '../Item';
 
-export const ItemList = (producto) => {
+export const ItemList = (props) => {
     
     return (
-        <div>
-            <Item title={producto.title} img={producto.img} price={producto.price}/>
+        <div className="items">
+            {props.productos.map((element, index) => {                       
+                        return (
+                            <span key={index}>
+                                <Item title={element.title} img={element.img} price={element.price}/>
+                            </span>
+                        )
+                    })}
         </div>
     )
 }

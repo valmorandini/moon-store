@@ -1,0 +1,16 @@
+
+.buttonsContainer{
+    display: flex;
+    justify-content: center;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    &__count {
+        display: flex;
+        padding: 10px;
+    }
+
+    &__add{
+        margin: 7px;
+    }
+}

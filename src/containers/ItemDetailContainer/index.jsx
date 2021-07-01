@@ -1,13 +1,12 @@
 
-import { ItemCount } from '../../components/ItemCount'
-import { ItemList } from '../../components/ItemList'
+import { ItemDetail } from '../../components/ItemDetail'
 import { useEffect, useState } from 'react';
-import { Item } from '../../components/Item';
 
 
-export const ItemListContainer = ({greeting}) => {
 
-    let [productos, setProductos] = useState([]);
+export const ItemDetailContainer = ({greeting}) => {
+
+    let [producto, setProducto] = useState([]);
 
     async function getData() {
         const response = await fetch("https://api.mercadolibre.com/sites/MLA/search?q=zapatillas")
@@ -17,30 +16,26 @@ export const ItemListContainer = ({greeting}) => {
 
     useEffect(() => {
         const waitForData = async () => {
-            let data = await getData('');           
+            let data = await getData('');
+            console.log(data);           
             let aux = data.map(element => {
                 return {
                     title: element.title,
                     img: element.thumbnail,
-                    price: element.price
+                    price: element.price,
                 }
             });
-            setProductos(aux);           
+            setProducto(aux[0]);           
         }
 
         waitForData();
     }, [])
 
-    if(productos.length > 0) {  
-        console.log(productos);
-    }
 
     return (
         <div>
-            <h1>{greeting}</h1>
-            <h1>Productos</h1>
             <div>
-                <ItemList productos={productos}/>
+                <ItemDetail  producto={producto} />
             </div>
         </div>
     )
