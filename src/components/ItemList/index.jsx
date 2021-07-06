@@ -8,7 +8,7 @@ export const ItemList = (props) => {
             {props.productos.map((element, index) => {                       
                         return (
                             <span key={index}>
-                                <Item title={element.title} img={element.img} price={element.price}/>
+                                <Item title={element.title} img={element.thumbnail} price={element.price} id={element.id}/>
                             </span>
                         )
                     })}

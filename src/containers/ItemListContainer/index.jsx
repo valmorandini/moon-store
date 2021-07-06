@@ -1,43 +1,33 @@
 
-import { ItemCount } from '../../components/ItemCount'
 import { ItemList } from '../../components/ItemList'
 import { useEffect, useState } from 'react';
-import { Item } from '../../components/Item';
+import { useParams } from 'react-router-dom'
 
 
-export const ItemListContainer = ({greeting}) => {
 
+export const ItemListContainer = () => {
+    const { categoryName } = useParams();
     let [productos, setProductos] = useState([]);
 
     async function getData() {
-        const response = await fetch("https://api.mercadolibre.com/sites/MLA/search?q=zapatillas")
+        const response = await fetch("https://api.mercadolibre.com/sites/MLA/search?q=ropaanime")
         const data = await response.json();
         return data.results;
     }
 
     useEffect(() => {
         const waitForData = async () => {
-            let data = await getData('');           
-            let aux = data.map(element => {
-                return {
-                    title: element.title,
-                    img: element.thumbnail,
-                    price: element.price
-                }
-            });
-            setProductos(aux);           
+            let data = await getData('');          
+            if (!categoryName) return setProductos(data);
+            const catItems = data.filter(item => item.category_id === categoryName);
+            setProductos(catItems);           
         }
-
         waitForData();
-    }, [])
+    }, [categoryName])
 
-    if(productos.length > 0) {  
-        console.log(productos);
-    }
 
     return (
         <div>
-            <h1>{greeting}</h1>
             <h1>Productos</h1>
             <div>
                 <ItemList productos={productos}/>
