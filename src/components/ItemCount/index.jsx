@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Button} from 'react-bootstrap'
 import './styles.scss'
 
-export const ItemCount = ({stock}) => {
+export const ItemCount = ({stock, onAdd}) => {
     const [counter, setCounter] = useState(1)
 
     const sumar = () => {
@@ -14,9 +14,6 @@ export const ItemCount = ({stock}) => {
         if(counter>1){
             setCounter(counter-1)
         }
-    }
-    const onAdd = () =>{
-        console.log(`Agregaste ${counter} articulos`)
     }
     
     return (
@@ -30,7 +27,7 @@ export const ItemCount = ({stock}) => {
                     <input type="number" value={counter}/>
                     <button onClick={sumar}>+</button>
                 </div>
-                <Button className="buttonsContainer__add" onClick={onAdd} variant="primary">Agregar al carrito</Button>
+                <Button className="buttonsContainer__add" onClick={() => onAdd(counter)} variant="primary">Agregar al carrito</Button>
             </div>
         </>
         :
