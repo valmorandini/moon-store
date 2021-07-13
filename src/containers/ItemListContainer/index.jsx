@@ -1,4 +1,4 @@
-
+import './styles.scss'
 import { ItemList } from '../../components/ItemList'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
@@ -28,7 +28,9 @@ export const ItemListContainer = () => {
 
     return (
         <div>
-            <h1>Productos</h1>
+            <div className="titlecontainer" >  
+                <h1 className="titlep">Productos</h1>
+            </div>
             <div>
                 <ItemList productos={productos}/>
             </div>

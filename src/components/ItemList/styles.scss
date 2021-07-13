@@ -2,4 +2,6 @@
 .items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    // max-width: 65%;
+    margin: 0 20 0 20;
 }

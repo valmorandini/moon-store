@@ -1,14 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
 
 .lcontainer {
     justify-content: space-between;
 }
 
 .logo {
-    width: 50px;
-    margin: 12px;
-    filter: invert(1);
+    width: 180px;
+    margin: 0 15px 0 15px;
 }
 
 .navbar {
     margin-top: 15px;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 0rem 0.5rem 1.5rem 0rem rgba(10, 10, 10, 0.54);
 }
+
+.dropbtn {
+    background-color: #343a40;
+    
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .dropa {
+    color: #bbb2b2;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+      background-color: #343a40;
+      color: white;
+      text-decoration: none;
+      
+    }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+    
+  }
+
+  
+  .dropa:hover  {
+    color: white;
+    text-decoration: none;
+  }
+  
