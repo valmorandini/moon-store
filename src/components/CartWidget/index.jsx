@@ -3,13 +3,13 @@ import { CartContext } from '../../context/CartContext';
 import { useContext } from 'react';
 
 export const CartWidget = () => {
-    const quantityCart = useContext(CartContext)
-
+    const {quantityCart} = useContext(CartContext)
+    
     return (
         <>
-            <a  href="#">
+            <a className="cartNavbar" href="#">
                 <img className="cartLogo" src="../../../images/cart.png" alt="" />
-                <p>{quantityCart}</p>
+                <span>{quantityCart}</span>
             </a>
         </>
     )

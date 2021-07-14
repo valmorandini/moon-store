@@ -27,11 +27,11 @@ export const ItemListContainer = () => {
 
 
     return (
-        <div>
-            <div className="titlecontainer" >  
-                <h1 className="titlep">Productos</h1>
+        <div className="container-fluid">
+            <div className="titlecontainer" >
+                {!categoryName? <h1 className="titlep">Todos los productos</h1> : <h1 className="titlep">{categoryName}</h1>}  
             </div>
-            <div>
+            <div className="container">
                 <ItemList productos={productos}/>
             </div>
         </div>

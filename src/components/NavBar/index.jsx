@@ -33,9 +33,7 @@ export const NavBar = () => {
                             </div>
                         
                         </ul>
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <CartWidget></CartWidget>
-                        </ul>
+                        <CartWidget></CartWidget>
                     </div>
                 </div>
                 </nav>

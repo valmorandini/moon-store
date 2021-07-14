@@ -4,7 +4,7 @@ import './styles.scss'
 
 export const ItemCount = ({stock, item, onAdd}) => {
     const [counter, setCounter] = useState(1)
-    
+    console.log(item)
     const sumar = () => {
         if(counter<stock){
             setCounter(counter+1)
