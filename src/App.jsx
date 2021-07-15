@@ -6,7 +6,9 @@ import { ItemListContainer } from './containers/ItemListContainer';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ItemDetailContainer } from './containers/ItemDetailContainer';
 import { CartComponentContext } from './context/CartContext';
-import { Cart } from './components/Cart';
+import { CartContainer } from './containers/CartContainer';
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
               <Route exact path="/" component={ItemListContainer}/>
               <Route path="/category/:categoryName" component={ItemListContainer}/>
               <Route path="/item/:id" component={ItemDetailContainer}/>
-              <Route path="/cart" component={Cart}/>
+              <Route path="/cart" component={CartContainer}/>
             </div>
           </Switch>
         </BrowserRouter>

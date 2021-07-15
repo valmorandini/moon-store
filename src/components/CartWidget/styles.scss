@@ -3,10 +3,21 @@
 .cartLogo {
     height: 38px;
     width: 38px;
-    margin: 0 0 0 15px;
+    // margin: 0 0 0 15px;
 }
 
 .cartNavBar {
     padding: 0 15px 0 15px;
     
+}
+
+.totalCartNav{
+    color: #fff;
+
+}
+
+.cartWidgetContainer{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
 }
