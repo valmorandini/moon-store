@@ -4,11 +4,7 @@ import { CartWidget } from '../CartWidget'
 import { useHistory } from 'react-router-dom'
 
 export const NavBar = () => {
-    const history = useHistory();
-    const hadleChange = (e) => {
-        if(e.target.value)
-        history.push(`/category/${e.target.value}`)
-    }
+  
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -23,15 +19,14 @@ export const NavBar = () => {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <div class="dropdown">
                             <button class="dropbtn"><a className="dropa" href="/">Productos</a></button>
-                            <div onChange={hadleChange} class="dropdown-content">
-                                    <a href="/category/MLA109042">Remeras</a>
-                                    <a href="/category/MLA109085">Buzos</a>
-                                    <a href="/category/MLA109255">Pijamas</a>
-                                    <a href="/category/MLA109279">Medias</a>
-                                    <a href="/category/MLA414610">Pantuflas</a>
+                            <div class="dropdown-content">
+                                    <a href="/category/Remeras">Remeras</a>
+                                    <a href="/category/Buzos">Buzos</a>
+                                    <a href="/category/Pantalones">Pantalones</a>
+                                    <a href="/category/Accesorios">Accesorios</a>
+                                    
                             </div>
                             </div>
-                        
                         </ul>
                         <CartWidget></CartWidget>
                     </div>
@@ -42,16 +37,3 @@ export const NavBar = () => {
 }
 
 
-
-{/* <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className="nav-item">
-                                <select onChange={hadleChange}>
-                                    <option value="">Productos</option>
-                                    <option value="MLA109042">Remeras</option>
-                                    <option value="MLA109085">Buzos</option>
-                                    <option value="MLA109255">Pijamas</option>
-                                    <option value="MLA109279">Medias</option>
-                                    <option value="MLA414610">Pantuflas</option>
-                                </select>
-                                </li>
-                        </ul> */}

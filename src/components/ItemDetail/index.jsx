@@ -14,18 +14,16 @@ export const ItemDetail = (props) => {
         addItem(item, counter);
         setRandom(counter)
     }
-  
-    console.log(random)
     return (
         <div className="dContainer">
             <div>
-                <img src={props.producto.pictures[0].url} alt="..." />
+                <img src={props.producto.img} alt="..." />
             </div>
             <div className="detalle">
                 <h5 className="titulo">{props.producto.title}</h5>
                 <div >
                     <p className="precio">Precio: ${props.producto.price}</p>
-                    {!random ? <ItemCount stock={props.producto.available_quantity} item={props.producto} onAdd={onAdd}/>  : <Link to="/cart"> <Button className="buttonsContainer__add"  variant="primary">Terminar Compra</Button></Link>}  
+                    {!random ? <ItemCount stock={props.producto.stock} item={props.producto} onAdd={onAdd}/>  : <Link to="/cart"> <Button className="buttonsContainer__add"  variant="primary">Terminar Compra</Button></Link>}  
                 </div>
             </div>
         </div>

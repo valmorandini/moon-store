@@ -7,8 +7,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ItemDetailContainer } from './containers/ItemDetailContainer';
 import { CartComponentContext } from './context/CartContext';
 import { CartContainer } from './containers/CartContainer';
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { fas } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   return (
