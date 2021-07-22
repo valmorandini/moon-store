@@ -14,12 +14,20 @@ export const ItemDetailContainer = () => {
         if (id !== undefined){
             setProductID(id);
         } 
-    }, [id, setProductID])
-
+    }, [id])
+    
     return (
         <div>
             <div>
-                <ItemDetail  props={item} />
+            {item ? <ItemDetail  props={item} />
+            :(  
+                <>
+                <br/>
+                <div class="spinner-border" role="status">
+                    <span class="sr-only"></span>
+                </div>
+                </>
+            )}
             </div>
         </div>
     )

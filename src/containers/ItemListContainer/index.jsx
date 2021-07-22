@@ -11,11 +11,10 @@ export const ItemListContainer = () => {
     const { categoryName } = useParams();
 
     useEffect(() => {
-        console.log('hola')
         if (categoryName !== undefined){
             setCategory(categoryName);
         } 
-    }, [categoryName, setCategory])
+    }, [categoryName])
 
     return (
         <div className="container-fluid">

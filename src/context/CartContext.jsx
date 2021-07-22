@@ -1,5 +1,8 @@
 import { useState, useEffect, createContext }  from 'react';
 import { getFirestore } from '../firebase/client';
+import firebase from 'firebase/app';
+import '@firebase/firestore';
+import Swal from 'sweetalert2'
 
 
 export const CartContext = createContext();
@@ -34,13 +37,33 @@ export const CartComponentContext = ({children}) => {
             if (productID !== undefined){
                 setItem()
                 const RESPONSE = await COLLECTION.doc(productID).get()
-                setItem(RESPONSE.data());
+                setItem({id: RESPONSE.id, ...RESPONSE.data()});
             }
 
         }
         getData();
     }, [category, productID])
 
+    const createOrder = (name, email, phone) => {
+        const newOrder = { buyer: { name: name, email: email, phone: phone}, items: cart, total: total, date: firebase.firestore.Timestamp.fromDate(new Date()) }
+        const db = getFirestore();
+        db.collection('orders').add(newOrder).then(({id}) => {
+            console.log(id);
+            Swal.fire(
+                'Orden confirmada!',
+                `Numero de orden: ${id}`,
+                'success'
+              )
+        });
+        const batch = db.batch();
+        const COLLECTION = db.collection("productos");
+        cart.forEach((obj) =>{
+            batch.update(COLLECTION.doc(obj.product.id), { stock: obj.product.stock - obj.quantity});
+        });
+        batch.commit().then(() => {
+            clear();
+        });
+    }
 
     const updateTotal = (obj) => {
         let aux = 0;
@@ -71,15 +94,14 @@ export const CartComponentContext = ({children}) => {
                 } else return cartElement;
             });
             setCart(newCart);
-            updateTotal(cart)
         } else {
             setCart([...cart, {product: item, quantity:counter}]);
-            updateTotal(cart)
         }
     };
-    
+
     useEffect(() => {
         setQuantityCart(cart.length)
+        updateTotal(cart)
     }, [cart])
 
     const clear = () => {
@@ -108,7 +130,7 @@ export const CartComponentContext = ({children}) => {
     }, [cart, total]);
 
 
-    return (<CartContext.Provider value={{products, category, cart, quantityCart, total, item, setCart, setProductID, setCategory, addItem, clear, removeItem}}>
+    return (<CartContext.Provider value={{products, category, cart, quantityCart, total, item, createOrder, setCart, setProductID, setCategory, addItem, clear, removeItem}}>
         {children}
     </CartContext.Provider>
     );

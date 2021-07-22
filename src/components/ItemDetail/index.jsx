@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 
 
-export const ItemDetail = (props) => {
+export const ItemDetail = (item) => {
     const [random, setRandom] = useState(null)
     const {addItem} = useContext(CartContext)
 
@@ -17,13 +17,17 @@ export const ItemDetail = (props) => {
     return (
         <div className="dContainer">
             <div>
-                <img src={props.producto.img} alt="..." />
+                <img className="imgDetail" src={item.props.img} alt="..." />
             </div>
             <div className="detalle">
-                <h5 className="titulo">{props.producto.title}</h5>
+                <h5 className="titulo">{item.props.title}</h5>
                 <div >
-                    <p className="precio">Precio: ${props.producto.price}</p>
-                    {!random ? <ItemCount stock={props.producto.stock} item={props.producto} onAdd={onAdd}/>  : <Link to="/cart"> <Button className="buttonsContainer__add"  variant="primary">Terminar Compra</Button></Link>}  
+                    <p className="precio">Precio: ${item.props.price}</p>
+                    {!random ? <ItemCount stock={item.props.stock} item={item.props} onAdd={onAdd}/>  : 
+                    <>
+                    <Link to="/"> <Button className="buttonsContainer__add"  variant="primary">Seguir comprando</Button></Link>
+                    <Link to="/cart"> <Button className="buttonsContainer__add"  variant="primary">Terminar Compra</Button></Link>
+                    </> }  
                 </div>
             </div>
         </div>

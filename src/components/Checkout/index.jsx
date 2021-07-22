@@ -1,13 +1,14 @@
 import './styles.scss';
 import { CartContext } from '../../context/CartContext';
-import { useContext } from 'react';
-import { ItemListCart } from '../../components/ItemListCart';
-import Button from "react-bootstrap/Button";
-import {Link} from 'react-router-dom';
+import {useState, useContext} from 'react';
 
-export const CartContainer = () => {
-    const {quantityCart, total, cart, clear} = useContext(CartContext)
-    
+
+export const Checkout = () => {
+    const { cart, createOrder, total } = useContext(CartContext);
+    const [ name, setName ] = useState('');
+    const [ email, setEmail ] = useState('');
+    const [ phone, setPhone ] = useState('');
+
     return (
         <>
         <div className="container cartContainer">
@@ -17,14 +18,21 @@ export const CartContainer = () => {
                         <div class="mb-3">
                             <div class="pt-4 wish-list">
 
-                                <h5 class="mb-4">Carrito (<span>{quantityCart}</span> items)</h5>
-                                {cart.length == 0? 
-                                <Link className="item-link" to={`/`}><Button className="buttonsContainer__add"  variant="primary">Ir a comprar</Button></Link>
-                                :<>
-                                    <ItemListCart items={cart}></ItemListCart>
-                                    <Button className="buttonsContainer__add" onClick={clear} variant="primary">Vaciar carrito</Button> 
-                                    <Link to="/"> <Button className="buttonsContainer__add"  variant="primary">Seguir comprando</Button></Link>
-                                    </>}
+                                <h5 class="mb-4">Completar datos</h5>
+                                <form>
+                                    <div class="form-group">
+                                        <label>Nombre</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  onInput={(e) => {setName( e.target.value)}}/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  onInput={(e) => {setEmail( e.target.value)}}/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Telefono</label>
+                                        <input type="tel" class="form-control" id="exampleInputPassword1"  onInput={(e) => {setPhone( e.target.value)}}/>
+                                    </div>
+                                </form>   
                             </div>
                         </div>
                         
@@ -50,7 +58,7 @@ export const CartContainer = () => {
                                         <span><strong>${total}</strong></span>
                                     </li>
                                 </ul>
-                                <Link to="/checkout"> <Button className="buttonsContainer__add"  variant="primary">Terminar compra</Button></Link>
+                                <button type="button" class="btn btn-primary btn-block" onClick={() =>{createOrder(name, email, phone)}}>Confirmar compra</button>
                             </div>
                         </div>
                     
@@ -59,5 +67,6 @@ export const CartContainer = () => {
             </section>
         </div>
         </>
+        
     )
 }
