@@ -1,4 +1,10 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
 .App {
+  min-height: 85vh;
   text-align: center;
 }
 

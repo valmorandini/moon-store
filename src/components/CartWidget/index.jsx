@@ -3,8 +3,6 @@ import { CartContext } from '../../context/CartContext';
 import { useContext } from "react";
 import { Badge } from "react-bootstrap";
 
-
-
 const badgeStyle = {
   verticalAlign: "top",
   marginLeft: -4,
@@ -16,9 +14,8 @@ const badgeStyle = {
 };
 
 export const CartWidget = () => {
-    const {quantityCart, total} = useContext(CartContext)
-
-    
+    const {quantityCart} = useContext(CartContext)
+  
     return (
         <>
         <div className="cartWidgetContainer">
@@ -28,9 +25,6 @@ export const CartWidget = () => {
                     <Badge pill variant="light" style={badgeStyle}>{quantityCart}</Badge>
                 </a>  
             </div> 
-            {/* <div>
-                <span className="totalCartNav">${total}</span>
-            </div> */}
         </div>
         </>
     )

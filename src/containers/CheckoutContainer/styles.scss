@@ -1,0 +1,30 @@
+.App {
+    padding-top: 2rem;
+}
+.form-group {
+    text-align: start;
+    padding-bottom: 2rem;;
+}
+
+.btn {
+    background-color: #212529;
+    color: rgb(223, 223, 223);
+    
+    &:hover {
+        color:#fff;
+    }
+}
+
+.col-lg-4{
+    border: 1px solid #ced4da;
+    // margin-left: 10px;
+}
+
+.col-lg-8{
+    padding-right: 3rem;
+}
+
+
+.m-error {
+    color: #d80000;
+}

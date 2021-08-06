@@ -7,7 +7,7 @@ import { CartContext } from '../../context/CartContext';
 
 
 export const ItemListContainer = () => {
-    const { products, setCategory } = useContext(CartContext)
+    const { products, productsCategory, setCategory } = useContext(CartContext)
     const { categoryName } = useParams();
 
     useEffect(() => {
@@ -18,18 +18,33 @@ export const ItemListContainer = () => {
 
     return (
         <div className="container-fluid">
-            <div className="titlecontainer" >
-                {!categoryName? <h1 className="titlep">Todos los productos</h1> : <h1 className="titlep">{categoryName}</h1>}  
-            </div>
-            <div className="container">
-            {products.length > 0 ? <ItemList productos={products}/>
-            :(
-                <div class="spinner-border" role="status">
-                    <span class="sr-only"></span>
+            {!categoryName?
+                <>
+                <div className="titlecontainer" >
+                    <h1 className="titlep">Todos los productos</h1> 
                 </div>
-            )}
-                
-            </div>
+                <div className="container">
+                    {products.length > 0 ? <ItemList productos={products}/>
+                    :(
+                        <div className="spinner-border" role="status">
+                            <span className="sr-only"></span>
+                        </div>
+                    )}
+                </div>
+                </> :
+                <>
+                <div className="titlecontainer" >
+                    <h1 className="titlep">{categoryName}</h1> 
+                </div>
+                <div className="container">
+                    {productsCategory.length > 0 ? <ItemList productos={productsCategory}/>
+                    :(
+                        <div className="spinner-border" role="status">
+                            <span className="sr-only"></span>
+                        </div>
+                    )}
+                </div>
+                </>} 
         </div>
     )
 }

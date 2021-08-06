@@ -1,0 +1,27 @@
+
+.iContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.iInfo {
+    text-align: start;
+}
+
+.listCheckout {
+    position: relative;
+    padding: .5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+    background-color: #fff;
+
+}
+
+h5 {
+    padding-bottom: 1rem;
+}
+
+.img-check {
+    height: 80px;
+    width: 80px;
+}

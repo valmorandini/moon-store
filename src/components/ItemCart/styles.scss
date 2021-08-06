@@ -35,6 +35,19 @@
     border-radius: 50%;
     background-clip: padding-box;
 }
+.qty{
+    height: 80%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.mi9 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+   
+}
 
 .minus:hover{
     background-color: #717fe0 !important;
@@ -48,10 +61,7 @@ span{
     -moz-user-select: none;
     -ms-user-select: none;
 }
-// input{  
-//     border: 0;
-//     width: 2%;
-// }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -65,4 +75,24 @@ input:disabled{
     width:90%;
     height: 90px;
     text-align:start;
+}
+
+.img-cart {
+    width: 150px;
+    height: 150px;
+}
+
+.hr-c {
+    margin-top: 1rem;
+}
+
+.btnTrash {
+    background-color: #fff;
+    border: none;
+}
+
+.p-container{
+    display: flex;
+    align-items: flex-start;
+    
 }

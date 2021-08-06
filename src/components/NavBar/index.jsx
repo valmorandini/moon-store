@@ -1,7 +1,6 @@
 import React from 'react'
 import './styles.scss'
 import { CartWidget } from '../CartWidget'
-import { useHistory } from 'react-router-dom'
 
 export const NavBar = () => {
   
@@ -17,14 +16,13 @@ export const NavBar = () => {
                     </button>
                     <div className="collapse navbar-collapse lcontainer" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <div class="dropdown">
-                            <button class="dropbtn"><a className="dropa" href="/">Productos</a></button>
-                            <div class="dropdown-content">
+                        <div className="dropdown">
+                            <button className="dropbtn"><a className="dropa" href="/">Productos</a></button>
+                            <div className="dropdown-content">
                                     <a href="/category/Remeras">Remeras</a>
                                     <a href="/category/Buzos">Buzos</a>
                                     <a href="/category/Pantalones">Pantalones</a>
                                     <a href="/category/Accesorios">Accesorios</a>
-                                    
                             </div>
                             </div>
                         </ul>
