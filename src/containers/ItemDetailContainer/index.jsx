@@ -19,7 +19,7 @@ export const ItemDetailContainer = () => {
     return (
         <div>
             <div>
-            {item ? (item.title === undefined ? <>
+            {item ? (!item.title ? <>
             <h5>Producto no entontrado</h5>
             <Link className="item-link" to={`/`}><Button className="buttonsContainer__add"  variant="primary">Volver a la página principal</Button></Link>
             </>  : 

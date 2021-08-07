@@ -13,7 +13,6 @@ export const Footer = () => {
                 <a href="#"><img className="redes-img" src="../../../images/facebook-brands.svg" alt="facebook" /></a>
                 <a href="#"><img className="redes-img" src="../../../images/twitter-brands.svg" alt="twitter" /></a>
                 <a href="#"><img className="redes-img" src="../../../images/instagram-brands.svg" alt="instagram" /></a>
-             
             </div>
         </div>
     )

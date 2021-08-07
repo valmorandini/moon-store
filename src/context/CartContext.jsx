@@ -34,17 +34,14 @@ export const CartComponentContext = ({children}) => {
                 return { id: element.id, ...element.data()}
             }));
             }
+            if (productID !== undefined){
+                setItem()
+                const RESPONSE = await COLLECTION.doc(productID).get()
+                setItem({id: RESPONSE.id, ...RESPONSE.data()});
+            }
         }
         getData();
-    }, [category])
-
-    useEffect(() => {
-        if (productID !== undefined){
-            setItem()
-            const aux= products.find(element => element.id === productID)
-            setItem(aux);
-        }
-    }, [productID])
+    }, [category, productID])
 
     const createOrder = (name, email, phone) => {
         const newOrder = { buyer: { name: name, email: email, phone: phone}, items: cart, total: total, date: firebase.firestore.Timestamp.fromDate(new Date()), estado: 'generada' }
@@ -135,7 +132,6 @@ export const CartComponentContext = ({children}) => {
     useEffect(() => {
         localStorage.setItem("cart",  JSON.stringify(cart));
     }, [cart, total]);
-
 
     return (<CartContext.Provider value={{
         products, 

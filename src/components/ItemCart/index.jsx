@@ -9,7 +9,6 @@ export const ItemCart = ({product, qty}) => {
     const {removeItem, addItem} = useContext(CartContext)
     const [counter, setCounter] = useState(qty)
     const stock = product.stock
-    console.log(qty)
     
     const remove = () =>{
       removeItem(product.id);
@@ -57,7 +56,7 @@ export const ItemCart = ({product, qty}) => {
                   </div>
                   <div className="qty">
                         <span onClick={restar} className="minus bg-dark">-</span>
-                        <input type="number" className="count" name="qty" value={counter}/>
+                        <input type="number" className="count" name="qty" value={counter} readOnly/>
                         <span onClick={sumar} className="plus bg-dark">+</span>
                   </div>
                   </div>                

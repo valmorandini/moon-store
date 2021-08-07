@@ -123,7 +123,7 @@ export const Checkout = () => {
                                     <p className="mb-4">Carrito vacio</p> 
                                     </>
                                     :cart.map(({product, quantity}) => 
-                                    <CheckoutItem product={product} qty={quantity}></CheckoutItem>
+                                    <CheckoutItem key={product} product={product} qty={quantity}></CheckoutItem>
                                 )}
                             </div>
                             <div className="pt-4">
